@@ -1,42 +1,42 @@
 module.exports = {
   /**
    * Adds 2 numbers.
-   * @param     {number}    a   addend
-   * @param     {number}    b   addend
-   * @returns                   sum
+   * @param {number} addend1 A number to be added
+   * @param {number} addend2 A number to be added
+   * @returns sum
    */
-  add(a, b) {
-    return a + b;
+  add(addend1, addend2) {
+    return addend1 + addend2;
   },
 
   /**
    * Subtracts 2 numbers.
-   * @param     {number}    a   minuend
-   * @param     {number}    b   subtrahend
-   * @returns                   difference
+   * @param {number} minuend The number to be subtracted from
+   * @param {number} subtrahend The number to subtract
+   * @returns difference
    */
-  sub(a, b) {
-    return a - b;
+  sub(minuend, subtrahend) {
+    return minuend - subtrahend;
   },
 
   /**
    * Divides 2 numbers.
-   * @param     {number}    a   dividend
-   * @param     {number}    b   divisor
-   * @returns                   quotient
+   * @param {number} dividend The number to be divided from
+   * @param {number} divisor The number to divide by
+   * @returns quotient
    */
-  div(a, b) {
-    return a / b;
+  div(dividend, subtrahend) {
+    return dividend / subtrahend;
   },
 
   /**
    * Multiplies 2 numbers.
-   * @param     {number}    a   factor
-   * @param     {number}    b   factor
-   * @returns                   product
+   * @param     {number}    factor1 The first number
+   * @param     {number}    factor2 The number to multiply the first number by
+   * @returns product
    */
-  mul(a, b) {
-    return a * b;
+  mul(factor1, factor2) {
+    return factor1 * factor2;
   },
 
   /**
