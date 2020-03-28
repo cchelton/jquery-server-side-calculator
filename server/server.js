@@ -51,7 +51,7 @@ app.post("/add", (req, res) => {
   const newHistoryObject = coleMath.newHistObj(newMathString, newResult);
   history.push(newHistoryObject); //  append history w/ new calculation
 
-  res.sendStatus(201);
+  res.sendStatus(200);
 });
 
 app.post("/subtract", (req, res) => {
@@ -69,7 +69,7 @@ app.post("/subtract", (req, res) => {
   const newHistoryObject = coleMath.newHistObj(newMathString, newResult);
   history.push(newHistoryObject); //  append history w/ new calculation
 
-  res.sendStatus(201);
+  res.sendStatus(200);
 });
 
 app.post("/multiply", (req, res) => {
@@ -87,7 +87,7 @@ app.post("/multiply", (req, res) => {
   const newHistoryObject = coleMath.newHistObj(newMathString, newResult);
   history.push(newHistoryObject); //  append history w/ new calculation
 
-  res.sendStatus(201);
+  res.sendStatus(200);
 });
 
 app.post("/divide", (req, res) => {
@@ -105,7 +105,7 @@ app.post("/divide", (req, res) => {
   const newHistoryObject = coleMath.newHistObj(newMathString, newResult);
   history.push(newHistoryObject); //  append history w/ new calculation
 
-  res.sendStatus(201);
+  res.sendStatus(200);
 });
 
 app.get("/result", (req, res) => {
