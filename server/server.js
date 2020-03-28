@@ -25,7 +25,8 @@ app.get("/history", (req, res) => {
   res.send(history);
 });
 
-app.post("/history", (req, res) => {
+/*
+  app.post("/history", (req, res) => {
   // testing route for me     TODO: remove this route
   const newCalc = req.body; //  format { mathString: '', result: 0 }
   console.log(newCalc);
@@ -33,7 +34,7 @@ app.post("/history", (req, res) => {
 
   res.sendStatus(201);
 });
-
+ */
 app.post("/add", (req, res) => {
   //  perform addition and append history
   const [num1, num2] = req.body; // unpack data. data format [num1, num2]
@@ -45,7 +46,7 @@ app.post("/add", (req, res) => {
   const newHistoryObject = coleMath.newHistObj(newMathString, newResult);
   history.push(newHistoryObject); //  append history w/ new calculation
 
-  res.send(201);
+  res.sendStatus(201);
 });
 
 app.post("/subtract", (req, res) => {
@@ -59,7 +60,7 @@ app.post("/subtract", (req, res) => {
   const newHistoryObject = coleMath.newHistObj(newMathString, newResult);
   history.push(newHistoryObject); //  append history w/ new calculation
 
-  res.send(201);
+  res.sendStatus(201);
 });
 
 app.post("/multiply", (req, res) => {
@@ -73,7 +74,7 @@ app.post("/multiply", (req, res) => {
   const newHistoryObject = coleMath.newHistObj(newMathString, newResult);
   history.push(newHistoryObject); //  append history w/ new calculation
 
-  res.send(201);
+  res.sendStatus(201);
 });
 
 app.post("/divide", (req, res) => {
