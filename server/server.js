@@ -37,7 +37,12 @@ app.get("/history", (req, res) => {
  */
 app.post("/add", (req, res) => {
   //  perform addition and append history
-  const [num1, num2] = req.body; // unpack data. data format [num1, num2]
+  let data = req.body; // unpack data. data format { numbers: [num1, num2] }
+  let [num1, num2] = data.numbers;
+
+  num1 = Number(num1);
+  num2 = Number(num2);
+
   const newMathString = `${num1}+${num2}`; //  prep for history
   const newResult = coleMath.add(num1, num2); //  calculate result
 
@@ -51,7 +56,11 @@ app.post("/add", (req, res) => {
 
 app.post("/subtract", (req, res) => {
   //  perform subtraction and append history
-  const [num1, num2] = req.body; // unpack data. data format [num1, num2]
+  let data = req.body; // unpack data. data format { numbers: [num1, num2] }
+  let [num1, num2] = data.numbers;
+
+  num1 = Number(num1);
+  num2 = Number(num2);
   const newMathString = `${num1}-${num2}`; //  prep for history
   const newResult = coleMath.sub(num1, num2); //  calculate result
 
@@ -65,7 +74,11 @@ app.post("/subtract", (req, res) => {
 
 app.post("/multiply", (req, res) => {
   //  perform multiplication and append history
-  const [num1, num2] = req.body; // unpack data. data format [num1, num2]
+  let data = req.body; // unpack data. data format { numbers: [num1, num2] }
+  let [num1, num2] = data.numbers;
+
+  num1 = Number(num1);
+  num2 = Number(num2);
   const newMathString = `${num1}*${num2}`; //  prep for history
   const newResult = coleMath.mul(num1, num2); //  calculate result
 
@@ -79,7 +92,11 @@ app.post("/multiply", (req, res) => {
 
 app.post("/divide", (req, res) => {
   //  perform division and append history
-  const [num1, num2] = req.body; // unpack data. data format [num1, num2]
+  let data = req.body; // unpack data. data format { numbers: [num1, num2] }
+  let [num1, num2] = data.numbers;
+
+  num1 = Number(num1);
+  num2 = Number(num2);
   const newMathString = `${num1}/${num2}`; //  prep for history
   const newResult = coleMath.div(num1, num2); //  calculate result
 
