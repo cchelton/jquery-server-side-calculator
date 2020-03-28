@@ -87,7 +87,11 @@ app.post("/divide", (req, res) => {
   const newHistoryObject = coleMath.newHistObj(newMathString, newResult);
   history.push(newHistoryObject); //  append history w/ new calculation
 
-  res.send(201);
+  res.sendStatus(201);
+});
+
+app.get("/result", (req, res) => {
+  res.send(result.toString());
 });
 
 //
