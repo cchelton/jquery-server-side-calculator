@@ -3,6 +3,8 @@ console.log("js on");
 $(document).ready(() => {
   console.log("jq on");
 
+  render();
+
   $(".js-form-calculator").on("submit", calcEquals);
   $(".js-btn-add").on("click", setModeAdd);
   $(".js-btn-subtract").on("click", setModeSubtract);
@@ -16,6 +18,8 @@ $(document).ready(() => {
 //
 
 let mode = null;
+let result = 0;
+const history = [];
 
 //
 //  EVENT HANDLERS
@@ -32,6 +36,9 @@ function calcEquals(event) {
   sendCalcDetails(numbersPackage);
 
   setModeDefault(); // return mode to null
+
+  //  get results from server
+  getResult();
 }
 
 function setModeAdd() {
@@ -63,30 +70,11 @@ function setModeDefault() {
 //  API INTERACTIONS
 //
 
-// //prettier-ignore
-// function sendCalcDetails(send) {
-//   // s
-//   $.ajax({
-//     method: 'POST',
-//     url: '/add',
-//     data: send,
-//   })
-//   .then((response) => {
-//     console.log(response);
-//   })
-//   .catch((err) => {
-//     console.log(err);
-//   });
-// }
-
 /**
  * Sends data package to server for calculation.
  * @param {[number, number]} numPackage numbers in array to be sent for calculation
  */
-// /*
 function sendCalcDetails(numPackage) {
-  console.log(numPackage);
-
   if (!mode) {
     console.log("MODE NOT SET. DID NOT SEND. FUNCTION: sendCalcDetails");
     alert("Please select an operator (+, -, *, /");
@@ -146,7 +134,31 @@ function sendCalcDetails(numPackage) {
       });
   }
 }
-// */
+
+function getResult() {
+  $.ajax({
+    method: "GET",
+    url: "/result"
+  })
+    .then(response => {
+      result = Number(response);
+      render(); // re-render page
+      console.log(
+        `getResult: response: ${response}(string) result: ${result}(number/float)`
+      );
+    })
+    .catch(err => {
+      console.log(err);
+    });
+}
+
+//
+// RENDERS
+//
+
+function render() {
+  $(".js-result").text(result);
+}
 
 //
 //  FUNCTIONS
