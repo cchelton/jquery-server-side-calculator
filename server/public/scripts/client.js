@@ -3,7 +3,6 @@ console.log("js on");
 $(document).ready(() => {
   console.log("jq on");
 
-  getHistory();
   render();
 
   $(".js-form-calculator").on("submit", calcEquals);
@@ -40,7 +39,6 @@ function calcEquals(event) {
 
   //  get results and History from server
   getResult();
-  getHistory();
 }
 
 function setModeAdd() {
@@ -175,7 +173,7 @@ function getHistory() {
 
 function render() {
   $(".js-result").text(result);
-  renderHistory();
+  getHistory();
 }
 
 function renderHistory() {
