@@ -3,6 +3,7 @@ console.log("js on");
 $(document).ready(() => {
   console.log("jq on");
 
+  getHistory();
   render();
 
   $(".js-form-calculator").on("submit", calcEquals);
@@ -19,7 +20,7 @@ $(document).ready(() => {
 
 let mode = null;
 let result = 0;
-const history = [];
+let history = [];
 
 //
 //  EVENT HANDLERS
@@ -37,8 +38,9 @@ function calcEquals(event) {
 
   setModeDefault(); // return mode to null
 
-  //  get results from server
+  //  get results and History from server
   getResult();
+  getHistory();
 }
 
 function setModeAdd() {
@@ -152,12 +154,38 @@ function getResult() {
     });
 }
 
+function getHistory() {
+  $.ajax({
+    method: "GET",
+    url: "/history"
+  })
+    .then(response => {
+      console.log(response);
+      history = response;
+      renderHistory(); // Don't re render result
+    })
+    .catch(err => {
+      console.log(err);
+    });
+}
+
 //
 // RENDERS
 //
 
 function render() {
   $(".js-result").text(result);
+  renderHistory();
+}
+
+function renderHistory() {
+  $(".js-history").empty();
+
+  for (let pastCalc of history) {
+    $(".js-history").prepend(`
+    <li>${pastCalc.mathString}=${pastCalc.result}</li>
+    `);
+  }
 }
 
 //
