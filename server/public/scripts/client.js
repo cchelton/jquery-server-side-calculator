@@ -87,6 +87,11 @@ function setModeDefault() {
 function sendCalcDetails(numPackage) {
   console.log(numPackage);
 
+  if (!mode) {
+    console.log("MODE NOT SET. DID NOT SEND. FUNCTION: sendCalcDetails");
+    alert("Please select an operator (+, -, *, /");
+  }
+
   if (mode === "add") {
     $.ajax({
       method: "POST",
@@ -95,6 +100,7 @@ function sendCalcDetails(numPackage) {
     })
       .then(response => {
         console.log(response);
+        resetValues();
       })
       .catch(err => {
         console.log(err);
@@ -107,6 +113,7 @@ function sendCalcDetails(numPackage) {
     })
       .then(response => {
         console.log(response);
+        resetValues();
       })
       .catch(err => {
         console.log(err);
@@ -119,6 +126,7 @@ function sendCalcDetails(numPackage) {
     })
       .then(response => {
         console.log(response);
+        resetValues();
       })
       .catch(err => {
         console.log(err);
@@ -131,12 +139,11 @@ function sendCalcDetails(numPackage) {
     })
       .then(response => {
         console.log(response);
+        resetValues();
       })
       .catch(err => {
         console.log(err);
       });
-  } else {
-    console.log("MODE NOT SET. DID NOT SEND. FUNCTION: sendCalcDetails");
   }
 }
 // */
@@ -157,10 +164,15 @@ function getNumbersFromDOM() {
   const numArr = [num1, num2];
   const dataPack = { numbers: numArr };
 
-  //reset values
-  $(".js-input-calcNum1").val("");
-  $(".js-input-calcNum2").val("");
-
   // return package
   return dataPack;
+}
+
+/**
+ * Resets input values.
+ * Call this when everything worked and the send to the server was successful
+ */
+function resetValues() {
+  $(".js-input-calcNum1").val("");
+  $(".js-input-calcNum2").val("");
 }
