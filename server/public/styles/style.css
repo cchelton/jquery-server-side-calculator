@@ -1,3 +1,85 @@
 .selected {
   background-color: #c7c7c7;
 }
+
+.calculatorGrid {
+  display: grid;
+  grid:
+    "d d d c"
+    "seven eight nine plus"
+    "four five six minus"
+    "one two three mult"
+    "zeroh deci equals divide";
+}
+
+.calcDisplay {
+  grid-area: d;
+}
+
+.calcClear {
+  grid-area: c;
+}
+
+.seven {
+  grid-area: seven;
+}
+
+.eight {
+  grid-area: eight;
+}
+
+.nine {
+  grid-area: nine;
+}
+
+.plus {
+  grid-area: plus;
+}
+
+.four {
+  grid-area: four;
+}
+
+.five {
+  grid-area: five;
+}
+
+.six {
+  grid-area: six;
+}
+
+.minus {
+  grid-area: minus;
+}
+
+.one {
+  grid-area: one;
+}
+
+.two {
+  grid-area: two;
+}
+
+.three {
+  grid-area: three;
+}
+
+.mult {
+  grid-area: mult;
+}
+
+.zeroh {
+  grid-area: zeroh;
+}
+
+.deci {
+  grid-area: deci;
+}
+
+.equals {
+  grid-area: equals;
+}
+
+.divide {
+  grid-area: divide;
+}
