@@ -5,19 +5,36 @@
 .calculatorGrid {
   display: grid;
   grid:
-    "d d d c"
-    "seven eight nine plus"
-    "four five six minus"
-    "one two three mult"
-    "zeroh deci equals divide";
+    "d d d c" 50px
+    "seven eight nine plus" 50px
+    "four five six minus" 50px
+    "one two three mult" 50px
+    "zeroh deci equals divide" 50px / 2fr 2fr 2fr 1fr;
+}
+
+.calcBtn {
+  font-size: 32px;
+}
+
+.calcNumBtn {
+  background-color: rgb(206, 206, 206);
+  border-color: rgb(104, 104, 104);
+}
+
+.calcOperatorBtn {
+  background-color: rgb(255, 208, 119);
+  border-color: rgb(104, 104, 104);
 }
 
 .calcDisplay {
   grid-area: d;
+  font-size: 40px;
 }
 
 .calcClear {
   grid-area: c;
+  border-color: rgb(104, 104, 104);
+  background-color: rgb(238, 238, 238);
 }
 
 .seven {
