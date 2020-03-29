@@ -41,9 +41,9 @@ let hasDot = false;
 
 function calcEquals(event) {
   event.preventDefault();
-  // check for an operand
+  // check for an operator
   if (!mode) {
-    alert("Please select an operand");
+    alert("Please select an operator");
     return;
   }
 
