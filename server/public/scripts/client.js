@@ -19,6 +19,8 @@ $(document).ready(() => {
   $(".js-btn-8").on("click", btn8);
   $(".js-btn-9").on("click", btn9);
   $(".js-btn-dot").on("click", btnDot);
+
+  $(".js-btn-clearHistory").on("click", clearHistory);
 });
 
 //
@@ -271,6 +273,20 @@ function getHistory() {
     })
     .catch(err => {
       // console.log(err);
+    });
+}
+
+function clearHistory() {
+  $.ajax({
+    method: "DELETE",
+    url: "/history"
+  })
+    .then(response => {
+      console.log(response);
+      getHistory();
+    })
+    .catch(err => {
+      console.log(err);
     });
 }
 

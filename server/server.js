@@ -10,7 +10,7 @@ const PORT = 5000;
 // VARIABLES
 //
 
-const history = require("./modules/history"); //  [ { mathString: '', result: 0 } ]
+let history = require("./modules/history"); //  [ { mathString: '', result: 0 } ]
 let result = 0;
 
 //
@@ -23,6 +23,11 @@ app.use(express.static("server/public"));
 
 app.get("/history", (req, res) => {
   res.send(history);
+});
+
+app.delete("/history", (req, res) => {
+  history = [];
+  res.sendStatus(200);
 });
 
 app.post("/add", (req, res) => {
