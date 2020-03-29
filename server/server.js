@@ -25,16 +25,6 @@ app.get("/history", (req, res) => {
   res.send(history);
 });
 
-/*
-  app.post("/history", (req, res) => {
-  // testing route for me     TODO: remove this route
-  const newCalc = req.body; //  format { mathString: '', result: 0 }
-  console.log(newCalc);
-  history.push(newCalc);
-
-  res.sendStatus(201);
-});
- */
 app.post("/add", (req, res) => {
   //  perform addition and append history
   let data = req.body; // unpack data. data format { numbers: [num1, num2] }

@@ -1,8 +1,4 @@
-console.log("js on");
-
 $(document).ready(() => {
-  console.log("jq on");
-
   render();
 
   $(".js-form-calculator").on("submit", calcEquals);
@@ -27,7 +23,6 @@ let history = [];
 
 function calcEquals(event) {
   event.preventDefault();
-  console.log("CLICKED EQUALS");
 
   //  get inputs from DOM
   const numbersPackage = getNumbersFromDOM();
@@ -42,22 +37,18 @@ function calcEquals(event) {
 }
 
 function setModeAdd() {
-  console.log("CLICKED ADD");
   mode = "add";
 }
 
 function setModeSubtract() {
-  console.log("CLICKED SUBTRACT");
   mode = "subtract";
 }
 
 function setModeMultiply() {
-  console.log("CLICKED MULTIPLY");
   mode = "multiply";
 }
 
 function setModeDivide() {
-  console.log("CLICKED DIVIDE");
   mode = "divide";
 }
 
@@ -76,7 +67,6 @@ function setModeDefault() {
  */
 function sendCalcDetails(numPackage) {
   if (!mode) {
-    console.log("MODE NOT SET. DID NOT SEND. FUNCTION: sendCalcDetails");
     alert("Please select an operator (+, -, *, /");
   }
 
@@ -87,11 +77,11 @@ function sendCalcDetails(numPackage) {
       data: numPackage
     })
       .then(response => {
-        console.log(response);
+        // console.log(response);
         resetValues();
       })
       .catch(err => {
-        console.log(err);
+        // console.log(err);
       });
   } else if (mode === "subtract") {
     $.ajax({
@@ -100,7 +90,7 @@ function sendCalcDetails(numPackage) {
       data: numPackage
     })
       .then(response => {
-        console.log(response);
+        // console.log(response);
         resetValues();
       })
       .catch(err => {
@@ -113,11 +103,11 @@ function sendCalcDetails(numPackage) {
       data: numPackage
     })
       .then(response => {
-        console.log(response);
+        // console.log(response);
         resetValues();
       })
       .catch(err => {
-        console.log(err);
+        // console.log(err);
       });
   } else if (mode === "divide") {
     $.ajax({
@@ -126,11 +116,11 @@ function sendCalcDetails(numPackage) {
       data: numPackage
     })
       .then(response => {
-        console.log(response);
+        // console.log(response);
         resetValues();
       })
       .catch(err => {
-        console.log(err);
+        // console.log(err);
       });
   }
 }
@@ -143,12 +133,12 @@ function getResult() {
     .then(response => {
       result = Number(response);
       render(); // re-render page
-      console.log(
-        `getResult: response: ${response}(string) result: ${result}(number/float)`
-      );
+      // console.log(
+      //   `getResult: response: ${response}(string) result: ${result}(number/float)`
+      // );
     })
     .catch(err => {
-      console.log(err);
+      // console.log(err);
     });
 }
 
@@ -158,12 +148,12 @@ function getHistory() {
     url: "/history"
   })
     .then(response => {
-      console.log(response);
+      // console.log(response);
       history = response;
       renderHistory(); // Don't re render result
     })
     .catch(err => {
-      console.log(err);
+      // console.log(err);
     });
 }
 
