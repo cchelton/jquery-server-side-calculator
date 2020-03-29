@@ -38,23 +38,29 @@ function calcEquals(event) {
 
 function setModeAdd() {
   mode = "add";
+  selectButtonCSS(this);
 }
 
 function setModeSubtract() {
   mode = "subtract";
+  selectButtonCSS(this);
 }
 
 function setModeMultiply() {
   mode = "multiply";
+  selectButtonCSS(this);
 }
 
 function setModeDivide() {
   mode = "divide";
+  selectButtonCSS(this);
 }
 
 function setModeDefault() {
   // happens on clear and equals
   mode = null;
+
+  selectButtonCSS(); //  clear selected button
 }
 
 //
@@ -203,4 +209,15 @@ function getNumbersFromDOM() {
 function resetValues() {
   $(".js-input-calcNum1").val("");
   $(".js-input-calcNum2").val("");
+}
+
+function selectButtonCSS(element) {
+  console.log(element);
+
+  $(".js-btn-add").removeClass("selected");
+  $(".js-btn-subtract").removeClass("selected");
+  $(".js-btn-multiply").removeClass("selected");
+  $(".js-btn-divide").removeClass("selected");
+
+  $(element).addClass("selected");
 }
