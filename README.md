@@ -1,9 +1,21 @@
-# Project Name
-
-[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
+# Server Side Calculator
 
 ## Description
 
-Your project description goes here. What problem did you solve? How did you solve it?
+_Duration:_ _Weekend_ _Challenge_
 
-Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).
+A calculator where all calculations are performed in the server, and each calculation is logged in the history as well.
+
+## Screen Shot
+
+![coles-calc](images/colesApp.png)
+
+## Usage
+
+1. Enter numbers into the input fields
+2. Select operation method
+3. Click "=" to calculate
+
+## License
+
+[MIT](LICENSE.txt)
