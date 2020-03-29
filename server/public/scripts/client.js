@@ -21,6 +21,8 @@ $(document).ready(() => {
   $(".js-btn-dot").on("click", btnDot);
 
   $(".js-btn-clearHistory").on("click", clearHistory);
+
+  $(".js-history").on("click", ".js-li-historyItem", loadHistoryItem);
 });
 
 //
@@ -176,6 +178,53 @@ function btnDot() {
   hasDot = true;
 }
 
+function loadHistoryItem() {
+  //  TODO: make this better
+  console.log("clicked li");
+
+  const i = parseInt($(this).data("index"));
+  console.log(i);
+
+  inputStr = history[i].mathString;
+
+  for (char of inputStr) {
+    //  type out the string. sorry.
+    if (char === "0") {
+      btn0();
+    } else if (char === "1") {
+      btn1();
+    } else if (char === "2") {
+      btn2();
+    } else if (char === "3") {
+      btn3();
+    } else if (char === "4") {
+      btn4();
+    } else if (char === "5") {
+      btn5();
+    } else if (char === "6") {
+      btn6();
+    } else if (char === "7") {
+      btn7();
+    } else if (char === "8") {
+      btn8();
+    } else if (char === "9") {
+      btn9();
+    } else if (char === ".") {
+      btnDot();
+    } else if (char === "+") {
+      setModeAdd();
+    } else if (char === "-") {
+      setModeSubtract();
+    } else if (char === "/") {
+      setModeDivide();
+    } else if (char === "*") {
+      setModeMultiply();
+    } else {
+      console.log(`INVALID CHAR IN loadHistoryItem: ${char}`);
+    }
+  }
+}
+
 //
 //  API INTERACTIONS
 //
@@ -302,9 +351,9 @@ function render() {
 function renderHistory() {
   $(".js-history").empty();
 
-  for (let pastCalc of history) {
+  for (let i = 0; i < history.length; i++) {
     $(".js-history").prepend(`
-    <li>${pastCalc.mathString}=${pastCalc.result}</li>
+    <li data-index=${i} class="js-li-historyItem">${history[i].mathString}=${history[i].result}</li>
     `);
   }
 }
@@ -319,11 +368,9 @@ function renderHistory() {
 function getNumbersFromDOM() {
   // get values
   const calcScreen = $(".js-input-calcNum1").val();
-  console.log(calcScreen);
 
   const holdArr = calcScreen.split(/[+/*-]/); //  split by +, -, *, or /      I have no idea how regex work
   const [num1, num2] = holdArr;
-  console.log(num1, num2);
 
   // pack values
   const numArr = [Number(num1), Number(num2)];
