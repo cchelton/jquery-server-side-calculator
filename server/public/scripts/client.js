@@ -180,10 +180,7 @@ function btnDot() {
 
 function loadHistoryItem() {
   //  TODO: make this better
-  console.log("clicked li");
-
   const i = parseInt($(this).data("index"));
-  console.log(i);
 
   inputStr = history[i].mathString;
 
